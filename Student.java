@@ -8,15 +8,15 @@ import java.util.Scanner;
 public class Student {
 	String name;
 	int id;
-	HashSet<Courses> current = new HashSet<Courses>();
-	HashSet<Courses> pastCourses = new HashSet<Courses>();
+	Transcript t;
 	static HashMap<Integer, Student> students = new HashMap<Integer, Student>();
 	
 
-	public Student(String name, int id) {
+	public Student(String name, int id, Transcript t) {
 		super();
 		this.name = name;
 		this.id = id;
+		this.t = t;
 	}
 
 	public static void Login() {
@@ -35,7 +35,8 @@ public class Student {
 				System.out.println("New student");
 				System.out.println("Enter your name:");
 				String name = scr.next();
-				Student newStudent = new Student(name, id);
+				Transcript t = new Transcript();
+				Student newStudent = new Student(name, id, t);
 				students.put(id, newStudent);
 			}
 			System.out.println("\nWelcome " + students.get(id).name + "!");
@@ -48,48 +49,10 @@ public class Student {
 
 	}
 
-	public void Trancript() {
+	public void viewTrancript() {
 		Scanner scr = new Scanner(System.in);
-		boolean pass = false;
-		System.out.println(" - TRANSCRIPT -");
-		if (pastCourses.isEmpty()) {
-			System.out.println("Have you taken any courses before? (y/n)");
-			String ans = scr.next();
-			if (ans.equals("y")) {
-				System.out.println("How many classes?");
-				int ans2 = scr.nextInt();
-				do {
-					System.out.println("\nClass " + ans2);
-					System.out.println("Enter name");
-					String name = scr.next();
-					System.out.println("Passed? (y/n)");
-					String grade = scr.next();
-					if (grade.equals("y"))
-						pass = true;
-					if (grade.equals("n"))
-						pass = false;
-					Courses newCourse = new Courses(name, pass);
-					pastCourses.add(newCourse);
-					ans2--;
-				} while (ans2 != 0);
-
-			}
-
-		}
-		System.out.println("\nPast Courses: ");
-		for (Courses c : pastCourses) {
-			c.print();
-		}
-
-		System.out.println("\nSchedule Fall 2016: ");
-		if (current.isEmpty())
-			System.out.println("You are not enrolled in any classes.");
-		else {
-			for (Courses c : current) {
-				c.print2();
-			}
-
-		}
+		t.createTranscript();
+		
 		System.out.println("\nGo to registration? (y/n)");
 		String answer = scr.next();
 		if (answer.equals("y"))
@@ -115,29 +78,29 @@ public class Student {
 			int crn = scr.nextInt();
 			if (crn == 45879) {
 				Courses newC = new Courses(crn, "MATH 1411");
-				current.add(newC);
+				t.current.add(newC);
 			}
 			if (crn == 47894) {
 				Courses newC = new Courses(crn, "CS 1401");
-				current.add(newC);
+				t.current.add(newC);
 			}
 			if (crn == 14597) {
 				Courses newC = new Courses(crn, "CS 3331");
-				current.add(newC);
+				t.current.add(newC);
 			}
 			if (crn == 98453) {
 				Courses newC = new Courses(crn, "BIOL 1305");
-				current.add(newC);
+				t.current.add(newC);
 			}
 			if (crn == 78944) {
 				Courses newC = new Courses(crn, "BIOL 1105");
-				current.add(newC);
+				t.current.add(newC);
 			}
 
 			ans--;
 		} while (ans != 0);
 		System.out.println();
-		Trancript();
+		viewTrancript();
 	}
 	
 

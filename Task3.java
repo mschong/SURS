@@ -13,7 +13,7 @@ public class Task3 {
 		int answer = scr.nextInt();
 		switch (answer) {
 		case 1:
-			student.Trancript();
+			student.viewTrancript();
 			break;
 		case 2:
 			student.Register();
