@@ -25,6 +25,7 @@ public class Task3 {
 				String name = scr.next();
 				Transcript t = new Transcript();
 				Student newStudent = new Student(name, id, t);
+				newStudent.t.createTranscript();
 				newStudent.holds.add(new Hold("Advising Required"));
 				newStudent.holds.add(new Hold("Balance Due"));
 				students.put(id, newStudent);

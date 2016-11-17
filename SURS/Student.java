@@ -21,7 +21,21 @@ public class Student {
 
 	public void viewTranscript() {
 		Scanner scr = new Scanner(System.in);
-		t.createTranscript();
+		
+		System.out.println("\nPast Courses: ");
+		for (Courses c : t.pastCourses) {
+			c.printPastCourses();
+		}
+
+		System.out.println("\nSchedule Fall 2016: ");
+		if (t.current.isEmpty())
+			System.out.println("You are not enrolled in any classes.");
+		else {
+			for (Courses c : t.current.values()) {
+				c.printCourses();
+
+			}
+		}
 
 		System.out.println("\nGo to registration? (y/n)");
 		String answer = scr.next();

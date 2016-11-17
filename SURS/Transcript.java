@@ -16,7 +16,7 @@ public class Transcript {
 	public void createTranscript() {
 		Scanner scr = new Scanner(System.in);
 		boolean pass = false;
-		System.out.println(" - TRANSCRIPT -");
+		System.out.println("\n - TRANSCRIPT -");
 		if (pastCourses.isEmpty()) {
 			System.out.println("Have you taken any courses before? (y/n)");
 			String ans = scr.next();
@@ -41,20 +41,7 @@ public class Transcript {
 			}
 
 		}
-		System.out.println("\nPast Courses: ");
-		for (Courses c : pastCourses) {
-			c.printPastCourses();
-		}
-
-		System.out.println("\nSchedule Fall 2016: ");
-		if (current.isEmpty())
-			System.out.println("You are not enrolled in any classes.");
-		else {
-			for (Courses c : current.values()) {
-				c.printCourses();
-
-			}
-		}
 
 	}
+
 }
