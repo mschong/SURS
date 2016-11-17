@@ -20,7 +20,7 @@ public class Task3 {
 			}
 			boolean exists = students.containsKey(id);
 			if (!exists) {
-				System.out.println("New student");
+				System.out.println("\nNew student");
 				System.out.println("Enter your name:");
 				String name = scr.next();
 				Transcript t = new Transcript();
