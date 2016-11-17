@@ -5,6 +5,16 @@ import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Student class implements methods viewTrascript, addClass, and dropClass.
+ * These methods are related to the actions that the student can execute in the system.
+ * Student class also contains the constructor to initiate a new Student object.
+ * 
+ * @author Marina Chong, Jessica Dozal
+ * @version %I%
+ *
+ */
+
 public class Student {
 	String name;
 	int id;
