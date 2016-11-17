@@ -1,11 +1,13 @@
-//This is a change
 package SURS;
+
+import java.util.HashSet;
 
 public class
 Courses {
 	int crn;
 	String name;
 	boolean pass;
+	
 
 	public Courses(int crn, String name) {
 		super();
@@ -19,14 +21,14 @@ Courses {
 		this.pass = pass;
 	}
 
-	public void print(){
+	public void printPastCourses(){
 		if(pass == false)
 			System.out.println("Name: " + name + " ||  FAILED");
 		else
 			System.out.println("Name: " + name + " ||  PASSED");
 	}
 	
-	public void print2(){
+	public void printCourses(){
 			System.out.println("CRN: " + crn + " Name: " + name);
 	}
 }

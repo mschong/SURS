@@ -37,14 +37,13 @@ public class Student {
 		System.out.println("\n - REGISTRATION - ");
 		System.out.println("How many classes are you registering for?");
 		int ans = scr.nextInt();
-		cl.print();
-			do {
-
+			while(ans != 0) {
+				cl.print();
 				System.out.println("\nSelect class (Enter crn)");
 				int crn = scr.nextInt();
 				t.current.put(crn, cl.roster.get(crn));
 				ans--;
-			} while (ans != 0);
+			} 
 			System.out.println();
 			viewTrancript();
 		}

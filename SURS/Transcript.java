@@ -43,7 +43,7 @@ public class Transcript {
 		}
 		System.out.println("\nPast Courses: ");
 		for (Courses c : pastCourses) {
-			c.print();
+			c.printPastCourses();
 		}
 
 		System.out.println("\nSchedule Fall 2016: ");
@@ -51,7 +51,7 @@ public class Transcript {
 			System.out.println("You are not enrolled in any classes.");
 		else {
 			for(Courses c : current.values()){
-				c.print2();
+				c.printCourses();
 				
 			}
 		}

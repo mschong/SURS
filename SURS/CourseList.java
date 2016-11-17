@@ -30,7 +30,7 @@ public class CourseList {
 		createRoster();
 		System.out.println();
 		for (Courses c : roster.values()) {
-			c.print2();
+			c.printCourses();
 		}
 	}
 }
