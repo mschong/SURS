@@ -3,20 +3,20 @@ package SURS;
 import java.util.HashSet;
 
 public class
-Courses {
+Course {
 	int crn;
 	String name;
 	boolean pass;
-	HashSet<Courses> prereq = new HashSet<Courses>();
+	HashSet<Course> prereq = new HashSet<Course>();
 	
 
-	public Courses(int crn, String name) {
+	public Course(int crn, String name) {
 		super();
 		this.crn = crn;
 		this.name = name;
 	}
 
-	public Courses(String name, boolean pass) {
+	public Course(String name, boolean pass) {
 		super();
 		this.name = name;
 		this.pass = pass;

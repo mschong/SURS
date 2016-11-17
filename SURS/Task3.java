@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Task3 {
 	static HashMap<Integer, Student> students = new HashMap<Integer, Student>();
 	
-	public static void Login() {
+	public static void login() {
 		System.out.println("Welcome to SURS!\n");
 		try {
 			Scanner scr = new Scanner(System.in);
@@ -16,7 +16,7 @@ public class Task3 {
 			int length = (int) (Math.log10(id) + 1);
 			if (length != 8) {
 				System.out.println("Invalid ID.");
-				Login();
+				login();
 			}
 			boolean exists = students.containsKey(id);
 			if (!exists) {
@@ -33,15 +33,16 @@ public class Task3 {
 				students.get(id).holds.clear();
 			}
 			System.out.println("\nWelcome " + students.get(id).name + "!");
-			Task3.NavMenu(students.get(id));
+			Task3.navMenu(students.get(id));
 
 		} catch (InputMismatchException e) {
 			System.out.println("Please enter a valid ID.");
-			Login();
+			login();
 		}
 
 	}
-	public static void NavMenu(Student student) {
+	
+	public static void navMenu(Student student) {
 		System.out.println("\nSelect an option: ");
 		System.out.println("1) Transcript");
 		System.out.println("2) Check Holds");
@@ -59,13 +60,13 @@ public class Task3 {
 			student.checkHolds();
 			break;
 		case 3:
-			student.addClass();
+			student.register();
 			break;
 		case 4:
-			student.dropClass();
+			student.drop();
 			break;
 		case 5:
-			Login();
+			login();
 			break;
 		case 6:
 			System.out.println("\nGoodbye :)");
@@ -74,7 +75,7 @@ public class Task3 {
 	}
 	
 	public static void main(String[] args) {
-		Login();
+		login();
 	}
 
 }

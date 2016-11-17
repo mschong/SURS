@@ -7,8 +7,25 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class Transcript {
-	HashMap<Integer, Courses> current = new HashMap<Integer, Courses>();
-	HashSet<Courses> pastCourses = new HashSet<Courses>();
+	HashMap<Integer, Course> current = new HashMap<Integer, Course>();
+	HashSet<Course> pastCourses = new HashSet<Course>();
+	
+	public HashMap<Integer, Course> getCurrent() {
+		return current;
+	}
+
+	public void setCurrent(HashMap<Integer, Course> current) {
+		this.current = current;
+	}
+
+	public HashSet<Course> getPastCourses() {
+		return pastCourses;
+	}
+
+	public void setPastCourses(HashSet<Course> pastCourses) {
+		this.pastCourses = pastCourses;
+	}
+
 
 	public Transcript() {
 	}
@@ -34,7 +51,7 @@ public class Transcript {
 						pass = true;
 					if (grade.equals("n"))
 						pass = false;
-					Courses newCourse = new Courses(name, pass);
+					Course newCourse = new Course(name, pass);
 					pastCourses.add(newCourse);
 					ans2--;
 				}
