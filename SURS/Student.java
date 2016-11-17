@@ -19,35 +19,6 @@ public class Student {
 		this.t = t;
 	}
 
-	public static void Login() {
-		System.out.println("Welcome to SURS!\n");
-		try {
-			Scanner scr = new Scanner(System.in);
-			System.out.println("Enter ID number: ");
-			int id = scr.nextInt();
-			int length = (int) (Math.log10(id) + 1);
-			if (length != 8) {
-				System.out.println("Invalid ID.");
-				Login();
-			}
-			boolean exists = students.containsKey(id);
-			if (!exists) {
-				System.out.println("New student");
-				System.out.println("Enter your name:");
-				String name = scr.next();
-				Transcript t = new Transcript();
-				Student newStudent = new Student(name, id, t);
-				students.put(id, newStudent);
-			}
-			System.out.println("\nWelcome " + students.get(id).name + "!");
-			Task3.NavMenu(students.get(id));
-
-		} catch (InputMismatchException e) {
-			System.out.println("Please enter a valid ID.");
-			Login();
-		}
-
-	}
 
 	public void viewTrancript() {
 		Scanner scr = new Scanner(System.in);
@@ -104,8 +75,6 @@ public class Student {
 	}
 	
 
-	public static void main(String[] args) {
-		Login();
-	}
+	
 
 }
