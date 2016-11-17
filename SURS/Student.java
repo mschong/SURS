@@ -9,6 +9,7 @@ public class Student {
 	String name;
 	int id;
 	Transcript t;
+	HashSet<Hold> holds = new HashSet<Hold>();
 	static HashMap<Integer, Student> students = new HashMap<Integer, Student>();
 
 	public Student(String name, int id, Transcript t) {
@@ -18,7 +19,7 @@ public class Student {
 		this.t = t;
 	}
 
-	public void viewTrancript() {
+	public void viewTranscript() {
 		Scanner scr = new Scanner(System.in);
 		t.createTranscript();
 
@@ -31,23 +32,38 @@ public class Student {
 
 	}
 
+	public void checkHolds() {
+		System.out.println("\n  - HOLDS - ");
+		if (holds.isEmpty())
+			System.out.println("You have no holds.");
+		for (Hold h : holds) {
+			System.out.println(h.name);
+		}
+		Task3.NavMenu(this);
+	}
+
 	public void addClass() {
-		CourseList cl = new CourseList();
-		Scanner scr = new Scanner(System.in);
-		System.out.println("\n - REGISTRATION - ");
-		System.out.println("How many classes are you registering for?");
-		int ans = scr.nextInt();
-			while(ans != 0) {
+		if (!holds.isEmpty()) {
+			System.out.println("You have " + holds.size() + " hold(s). You cannot register at the moment");
+			Task3.NavMenu(this);
+		} else {
+			CourseList cl = new CourseList();
+			Scanner scr = new Scanner(System.in);
+			System.out.println("\n - REGISTRATION - ");
+			System.out.println("How many classes are you registering for?");
+			int ans = scr.nextInt();
+			while (ans != 0) {
 				cl.print();
 				System.out.println("\nSelect class (Enter crn)");
 				int crn = scr.nextInt();
 				t.current.put(crn, cl.roster.get(crn));
 				ans--;
-			} 
+			}
 			System.out.println();
-			viewTrancript();
+			viewTranscript();
 		}
-	
+
+	}
 
 	public void dropClass() {
 		Scanner scr = new Scanner(System.in);
@@ -61,7 +77,7 @@ public class Student {
 			ans--;
 		} while (ans != 0);
 		System.out.println();
-		viewTrancript();
+		viewTranscript();
 	}
 
 }

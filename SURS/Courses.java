@@ -7,6 +7,7 @@ Courses {
 	int crn;
 	String name;
 	boolean pass;
+	HashSet<Courses> prereq = new HashSet<Courses>();
 	
 
 	public Courses(int crn, String name) {

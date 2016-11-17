@@ -25,7 +25,11 @@ public class Task3 {
 				String name = scr.next();
 				Transcript t = new Transcript();
 				Student newStudent = new Student(name, id, t);
+				newStudent.holds.add(new Hold("Advising Required"));
+				newStudent.holds.add(new Hold("Balance Due"));
 				students.put(id, newStudent);
+			} else{
+				students.get(id).holds.clear();
 			}
 			System.out.println("\nWelcome " + students.get(id).name + "!");
 			Task3.NavMenu(students.get(id));
@@ -39,26 +43,30 @@ public class Task3 {
 	public static void NavMenu(Student student) {
 		System.out.println("\nSelect an option: ");
 		System.out.println("1) Transcript");
-		System.out.println("2) Add Classes");
-		System.out.println("3) Drop Classes");
-		System.out.println("4) Logout");
-		System.out.println("5) Exit Program");
+		System.out.println("2) Check Holds");
+		System.out.println("3) Add Classes");
+		System.out.println("4) Drop Classes");
+		System.out.println("5) Logout");
+		System.out.println("6) Exit Program");
 		Scanner scr = new Scanner(System.in);
 		int answer = scr.nextInt();
 		switch (answer) {
 		case 1:
-			student.viewTrancript();
+			student.viewTranscript();
 			break;
 		case 2:
-			student.addClass();
+			student.checkHolds();
 			break;
 		case 3:
-			student.dropClass();
+			student.addClass();
 			break;
 		case 4:
-			Login();
+			student.dropClass();
 			break;
 		case 5:
+			Login();
+			break;
+		case 6:
 			System.out.println("\nGoodbye :)");
 			System.exit(0);
 		}

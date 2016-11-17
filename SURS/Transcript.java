@@ -23,10 +23,11 @@ public class Transcript {
 			if (ans.equals("y")) {
 				System.out.println("How many classes?");
 				int ans2 = scr.nextInt();
-				do {
+				while (ans2 != 0) {
 					System.out.println("\nClass " + ans2);
+					scr = new Scanner(System.in);
 					System.out.println("Enter name");
-					String name = scr.next();
+					String name = scr.nextLine();
 					System.out.println("Passed? (y/n)");
 					String grade = scr.next();
 					if (grade.equals("y"))
@@ -36,8 +37,7 @@ public class Transcript {
 					Courses newCourse = new Courses(name, pass);
 					pastCourses.add(newCourse);
 					ans2--;
-				} while (ans2 != 0);
-
+				}
 			}
 
 		}
@@ -50,9 +50,9 @@ public class Transcript {
 		if (current.isEmpty())
 			System.out.println("You are not enrolled in any classes.");
 		else {
-			for(Courses c : current.values()){
+			for (Courses c : current.values()) {
 				c.printCourses();
-				
+
 			}
 		}
 
