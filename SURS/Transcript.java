@@ -1,18 +1,19 @@
 package SURS;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Transcript {
-	HashSet<Courses> current = new HashSet<Courses>();
+	HashMap<Integer, Courses> current = new HashMap<Integer, Courses>();
 	HashSet<Courses> pastCourses = new HashSet<Courses>();
-	
 
 	public Transcript() {
 	}
 
-
-	public void createTranscript(){
+	public void createTranscript() {
 		Scanner scr = new Scanner(System.in);
 		boolean pass = false;
 		System.out.println(" - TRANSCRIPT -");
@@ -49,10 +50,11 @@ public class Transcript {
 		if (current.isEmpty())
 			System.out.println("You are not enrolled in any classes.");
 		else {
-			for (Courses c : current) {
+			for(Courses c : current.values()){
 				c.print2();
+				
 			}
-
 		}
+
 	}
 }

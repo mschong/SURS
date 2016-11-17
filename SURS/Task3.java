@@ -39,9 +39,10 @@ public class Task3 {
 	public static void NavMenu(Student student) {
 		System.out.println("\nSelect an option: ");
 		System.out.println("1) Transcript");
-		System.out.println("2) Register");
-		System.out.println("3) Logout");
-		System.out.println("4) Exit Program");
+		System.out.println("2) Add Classes");
+		System.out.println("3) Drop Classes");
+		System.out.println("4) Logout");
+		System.out.println("5) Exit Program");
 		Scanner scr = new Scanner(System.in);
 		int answer = scr.nextInt();
 		switch (answer) {
@@ -49,12 +50,15 @@ public class Task3 {
 			student.viewTrancript();
 			break;
 		case 2:
-			student.Register();
+			student.addClass();
 			break;
 		case 3:
-			Login();
+			student.dropClass();
 			break;
 		case 4:
+			Login();
+			break;
+		case 5:
 			System.out.println("\nGoodbye :)");
 			System.exit(0);
 		}

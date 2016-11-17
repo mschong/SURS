@@ -27,13 +27,13 @@ public class Student {
 		System.out.println("\nGo to registration? (y/n)");
 		String answer = scr.next();
 		if (answer.equals("y"))
-			Register();
+			addClass();
 		else if (answer.equals("n"))
 			Task3.NavMenu(this);
 
 	}
 
-	public void Register() {
+	public void addClass() {
 		Scanner scr = new Scanner(System.in);
 		System.out.println("\n - REGISTRATION - ");
 		System.out.println("How many classes are you registering for?");
@@ -49,25 +49,40 @@ public class Student {
 			int crn = scr.nextInt();
 			if (crn == 45879) {
 				Courses newC = new Courses(crn, "MATH 1411");
-				t.current.add(newC);
+				t.current.put(crn, newC);
 			}
 			if (crn == 47894) {
 				Courses newC = new Courses(crn, "CS 1401");
-				t.current.add(newC);
+				t.current.put(crn, newC);
 			}
 			if (crn == 14597) {
 				Courses newC = new Courses(crn, "CS 3331");
-				t.current.add(newC);
+				t.current.put(crn, newC);
 			}
 			if (crn == 98453) {
 				Courses newC = new Courses(crn, "BIOL 1305");
-				t.current.add(newC);
+				t.current.put(crn, newC);
 			}
 			if (crn == 78944) {
 				Courses newC = new Courses(crn, "BIOL 1105");
-				t.current.add(newC);
+				t.current.put(crn, newC);
 			}
 
+			ans--;
+		} while (ans != 0);
+		System.out.println();
+		viewTrancript();
+	}
+	
+	public void dropClass(){
+		Scanner scr = new Scanner(System.in);
+		System.out.println("How many classes will you be dropping?");
+		int ans = scr.nextInt();
+		do{
+			System.out.println("Enter the crn");
+			int crn = scr.nextInt();
+			t.current.remove(crn);
+			
 			ans--;
 		} while (ans != 0);
 		System.out.println();
