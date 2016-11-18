@@ -4,9 +4,22 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Class Task 3 contains methods to initiate project interface.
+ * 
+ * @author Marina Chong, Jessica Dozal
+ * @version 2.0
+ */
 public class Task3 {
 	static HashMap<Integer, Student> students = new HashMap<Integer, Student>();
-	
+
+	/**
+	 * Method login starts project logic, asks student for id number and checks
+	 * if the user already exists in the registration system. If student is a
+	 * new user asks for name and creates new transcript.
+	 * 
+	 * @see SURS.Student#Student(String, int, Transcript)
+	 */
 	public static void login() {
 		System.out.println("Welcome to SURS!\n");
 		try {
@@ -29,7 +42,7 @@ public class Task3 {
 				newStudent.holds.add(new Hold("Advising Required"));
 				newStudent.holds.add(new Hold("Balance Due"));
 				students.put(id, newStudent);
-			} else{
+			} else {
 				students.get(id).holds.clear();
 			}
 			System.out.println("\nWelcome " + students.get(id).name + "!");
@@ -41,7 +54,13 @@ public class Task3 {
 		}
 
 	}
-	
+
+	/**
+	 * Method navMeno handles logic of navigation menu.
+	 * 
+	 * @param student
+	 *            current student that is using the registration system.
+	 */
 	public static void navMenu(Student student) {
 		System.out.println("\nSelect an option: ");
 		System.out.println("1) Transcript");
@@ -73,7 +92,7 @@ public class Task3 {
 			System.exit(0);
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		login();
 	}
